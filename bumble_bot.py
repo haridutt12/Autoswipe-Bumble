@@ -17,7 +17,9 @@ class BumbleBot():
         sign_in.click()
 
         sleep(2)
-        fb_login = self.driver.find_element_by_xpath('//*[@id="main"]/div/div[1]/div[2]/main/div/div[2]/form/div[1]/div/span/span')
+        # //*[@id="main"]/div/div[1]/div[2]/main/div/div[2]/form/div[1]/div/div[2]/div
+
+        fb_login = self.driver.find_element_by_xpath('//*[@id="main"]/div/div[1]/div[2]/main/div/div[2]/form/div[1]/div/div[2]/div/span/span[2]')
         fb_login.click()
 
         base_window = self.driver.window_handles[0]
@@ -37,11 +39,11 @@ class BumbleBot():
         
 
     def like(self):
-        like_btn = self.driver.find_element_by_xpath('//*[@id="main"]/div/div[1]/main/div[2]/div/div/span/div[2]/div/div[2]/div/div[3]/div/span/span')
+        like_btn = self.driver.find_element_by_xpath('//*[@id="main"]/div/div[1]/main/div[2]/div/div/span/div[2]/div/div[2]/div/div[3]/div/div[1]/span')
         like_btn.click()
 
     def dislike(self):
-        dislike_btn = self.driver.find_element_by_xpath('//*[@id="main"]/div/div[1]/main/div[2]/div/div/span/div[2]/div/div[2]/div/div[1]/div/span/span')
+        dislike_btn = self.driver.find_element_by_xpath('//*[@id="main"]/div/div[1]/main/div[2]/div/div/span/div[2]/div/div[2]/div/div[1]/div/div[1]/span')
         dislike_btn.click()
 
     def autoswipe(self):
@@ -50,6 +52,7 @@ class BumbleBot():
                 r = random.randint(1,4)
                 sleep(r)
                 threshold = random.random()
+                print(threshold)
                 if threshold > 0.3:
                     self.like()
                 else:
